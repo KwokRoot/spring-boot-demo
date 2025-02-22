@@ -1,9 +1,8 @@
 package org.kwok.controller;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.time.LocalDateTime;
@@ -12,17 +11,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @description:
+ * @description: 自动扫描配置 Controller 接口及参数
  * @author: Kwok
  * @date: 2025/2/22
  */
-@Api(tags = "Swagger控制器")
 @RequestMapping("swagger")
 @Controller
 public class SwaggerController {
 
-    @ApiOperation(value = "获取当前时间", httpMethod = "GET")
-    @RequestMapping("now")
+    @RequestMapping(value = "now", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
     public Map<String, String> date() {
         Map map = new HashMap();

@@ -11,5 +11,5 @@ mvn archetype:generate -DgroupId=org.kwok -DartifactId=spring-boot-demo -Darchet
 >> https://start.spring.io
 3. spring-boot-web
 4. spring-boot-web-swagger
-> 使用 SpringFox 集成 Swagger UI
+> 使用 SpringDoc 集成 Swagger UI
 5. 
