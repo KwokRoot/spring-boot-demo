@@ -10,4 +10,6 @@ mvn archetype:generate -DgroupId=org.kwok -DartifactId=spring-boot-demo -Darchet
 >> https://start.aliyun.com
 >> https://start.spring.io
 3. spring-boot-web
-4. 
+4. spring-boot-web-event
+> Spring-Boot 事件发布和订阅模式。通过事件进行通信，可实现解耦和异步处理。
+5. 
