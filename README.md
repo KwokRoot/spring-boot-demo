@@ -10,4 +10,7 @@ mvn archetype:generate -DgroupId=org.kwok -DartifactId=spring-boot-demo -Darchet
 >> https://start.aliyun.com
 >> https://start.spring.io
 3. spring-boot-web
-4. 
+4. spring-boot-web-other 
+   1. 跨域访问配置 `org.kwok.config.CorsConfig`
+   2. 
+5. 
