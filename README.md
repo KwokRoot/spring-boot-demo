@@ -12,5 +12,6 @@ mvn archetype:generate -DgroupId=org.kwok -DartifactId=spring-boot-demo -Darchet
 3. spring-boot-web
 4. spring-boot-web-other 
    1. 跨域访问配置 `org.kwok.config.CorsConfig`
-   2. 
+   2. 配置 Spring RestTemplate `org.kwok.config.HttpClientConfig`
+   3. 
 5. 
