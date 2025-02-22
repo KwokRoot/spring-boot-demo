@@ -10,4 +10,13 @@ mvn archetype:generate -DgroupId=org.kwok -DartifactId=spring-boot-demo -Darchet
 >> https://start.aliyun.com
 >> https://start.spring.io
 3. spring-boot-web
-4. 
+4. spring-boot-web-package
+> spring-boot 依赖jar包 及 配置文件 外置，并打包为 zip 部署包。
+```
+zip 包目录结构
+│  spring-boot-demo-0.0.1-SNAPSHOT.jar
+├─bin
+├─config
+└─lib
+```
+5. 

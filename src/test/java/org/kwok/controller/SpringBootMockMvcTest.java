@@ -16,7 +16,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @author: Kwok
  * @date: 2025/2/22
  */
-@WebMvcTest
+// @SpringBootTest
+// @AutoConfigureMockMvc
+@WebMvcTest // 打包测试环节报空指针，可使用 `@SpringBootTest`、`@AutoConfigureMockMvc` 注解替换。
 public class SpringBootMockMvcTest {
 
     @Resource
