@@ -9,4 +9,5 @@ mvn archetype:generate -DgroupId=org.kwok -DartifactId=spring-boot-demo -Darchet
 2. base: 空 spring-boot 项目
 >> https://start.aliyun.com
 >> https://start.spring.io
-3. 
+3. spring-boot-web
+4. 
