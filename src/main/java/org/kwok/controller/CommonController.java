@@ -3,10 +3,13 @@ package org.kwok.controller;
 
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.extra.servlet.ServletUtil;
+import cn.hutool.json.JSONObject;
+import org.kwok.config.CustomSystemProperties;
 import org.kwok.util.CommonResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,6 +24,12 @@ public class CommonController {
 
     @Autowired
     private HttpServletRequest request;
+
+    @Autowired
+    CustomSystemProperties customSystemProperties;
+
+    @Value("${sys.author:Kwok}")
+    String author;
 
     @RequestMapping({"", "index"})
     @ResponseBody
@@ -41,6 +50,18 @@ public class CommonController {
     public String hello() {
         logger.info(">>> remoteAddr: {}, path: {}", ServletUtil.getClientIP(request), request.getServletPath());
         return "hello";
+    }
+
+    @RequestMapping("open/sysinfo")
+    @ResponseBody
+    public JSONObject sysInfo() {
+        JSONObject sysInfo = new JSONObject();
+        sysInfo.set("id", customSystemProperties.getId());
+        sysInfo.set("name", customSystemProperties.getName());
+        sysInfo.set("ver", customSystemProperties.getVer());
+        sysInfo.set("uptime", customSystemProperties.getUptime());
+        sysInfo.set("author", author);
+        return sysInfo;
     }
 
     @RequestMapping("open/ping")

@@ -14,5 +14,5 @@ mvn archetype:generate -DgroupId=org.kwok -DartifactId=spring-boot-demo -Darchet
    1. 跨域访问配置 `org.kwok.config.CorsConfig`
    2. 配置 Spring RestTemplate `org.kwok.config.HttpClientConfig`
    3. 配置 Spring Scheduled 定时调度任务 并 自定义调度器执行线程池。 `org.kwok.schedule.CommonSchedule`、`org.kwok.schedule.config.CustomSchedulingConfig`
-   4. 
+   4. 自定义配置项注入 `org.kwok.config.CustomSystemProperties`
 5. 
