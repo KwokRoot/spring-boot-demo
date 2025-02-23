@@ -13,4 +13,5 @@ mvn archetype:generate -DgroupId=org.kwok -DartifactId=spring-boot-demo -Darchet
 4. spring-boot-web-actuator 
    1. 使用 `spring-boot-starter-actuator` 模块，提供的 HTTP 端点（Endpoints），用于获取应用的运行时信息。
    2. 使用 `spring-boot-admin-starter-server` 模块，集中管理 client actuator 的 Endpoints 信息。
+   3. 使用 `spring-boot-starter-security` 模块，对 `spring-boot-admin-starter-server` 模块实现简单的登录认证。
 5. 
