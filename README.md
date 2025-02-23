@@ -9,4 +9,5 @@ mvn archetype:generate -DgroupId=org.kwok -DartifactId=spring-boot-demo -Darchet
 2. base: 空 spring-boot 项目
 >> https://start.aliyun.com
 >> https://start.spring.io
-3. 
+3. spring-boot-jpa 使用 `spring-boot-starter-data-jpa` ORM 框架，操作H2数据库。
+
