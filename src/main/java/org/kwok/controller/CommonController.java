@@ -22,7 +22,7 @@ public class CommonController {
     @Autowired
     private HttpServletRequest request;
 
-    @RequestMapping({"", "index"})
+    @RequestMapping({ "index"})
     @ResponseBody
     public String index() {
         return "ServerStart...";
