@@ -10,4 +10,6 @@ mvn archetype:generate -DgroupId=org.kwok -DartifactId=spring-boot-demo -Darchet
 >> https://start.aliyun.com
 >> https://start.spring.io
 3. spring-boot-web
-4. 
+4. spring-boot-web-tools
+   1. `org.kwok.controller.DataBaseToolController` 数据库查询工具。
+   2. 
