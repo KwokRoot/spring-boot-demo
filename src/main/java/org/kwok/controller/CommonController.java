@@ -2,11 +2,14 @@ package org.kwok.controller;
 
 
 import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.servlet.ServletUtil;
 import org.kwok.util.CommonResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,7 +36,26 @@ public class CommonController {
     public CommonResult<Long> test(HttpServletRequest request2,
                        @RequestParam(defaultValue = "0", required = false) Long id) {
         logger.info(">>> remoteAddr: {}, path: {}, param: {}", ServletUtil.getClientIP(request2), request2.getServletPath(), id);
-        return CommonResult.ok("test", id);
+
+        String userName = "guest";
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        //
+        // Authentication authenticationNotNull = Optional.ofNullable(authentication).orElse(new UsernamePasswordAuthenticationToken(User.builder().username("guest").password("").authorities("ROLE_GUEST").build(), ""));
+        // if(authenticationNotNull.getPrincipal() instanceof UserDetails){
+        //     UserDetails principal = (UserDetails) authenticationNotNull.getPrincipal();
+        //     userName = principal.getUsername();
+        // }else if(authenticationNotNull.getPrincipal() instanceof String) {
+        //     userName = (String)authenticationNotNull.getPrincipal();
+        // }
+        //
+
+        if (authentication!=null){
+            userName = authentication.getName();
+        }
+
+        return CommonResult.ok(StrUtil.format("登录用户: {}", userName), id);
     }
 
     @RequestMapping({"hello"})
