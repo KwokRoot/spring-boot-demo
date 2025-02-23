@@ -10,4 +10,5 @@ mvn archetype:generate -DgroupId=org.kwok -DartifactId=spring-boot-demo -Darchet
 >> https://start.aliyun.com
 >> https://start.spring.io
 3. spring-boot-web
-4. 
+4. spring-boot-web-thymeleaf `spring-boot-starter-thymeleaf` 基本配置及使用。
+5. 

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+    <script src="/js/jquery-1.12.4.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+</head>
+<body>
+<h1>welcome <span th:text="${user}"></span> , <a style="font-size: 20px;" href="/logout">退出登录</a></h1>
+<span th:text="${timestamp}" hidden id="server-time-div"></span>
+<h3>服务器时间：<span id="date-time-div"></span></h3>
+<h3>源码版本：<span th:text="${version}"></span></h3>
+
+<hr>
+<a href="/test">接口1：测试</a><br>
+<a href="/open/ping">接口2：状态</a><br>
+<hr>
+
+
+</body>
+
+<script>
+
+    /* 服务器时间更新 */
+    var serverTime = document.getElementById("server-time-div").innerText;
+    window.onload = function () {
+        nowTime();
+        //每1秒刷新时间
+        setInterval(nowTime, 1000);
+    }
+
+    function nowTime() {
+        serverTime = Number(serverTime);
+        serverTime = serverTime + 1000;
+        //获取年月日
+        var time = new Date(serverTime);
+        var year = time.getFullYear();
+        var month = time.getMonth() + 1;
+        var day = time.getDate();
+
+        //获取时分秒
+        var h = time.getHours();
+        var m = time.getMinutes();
+        var s = time.getSeconds();
+
+        //检查是否小于10
+        h = check(h);
+        m = check(m);
+        s = check(s);
+
+        document.getElementById("date-time-div").innerHTML = year + " 年 " + month + " 月 " + day + " 日 " + h + ":" + m + ":" + s;
+
+    }
+
+    //时间数字小于10，则在之前加个“0”补位。
+    function check(i) {
+        //方法一，用三元运算符
+        var num;
+        i < 10 ? num = "0" + i : num = i;
+        return num;
+    }
+
+    /* 服务器时间更新 END */
+
+</script>
+
+</html>

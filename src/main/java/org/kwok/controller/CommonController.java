@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -37,9 +38,13 @@ public class CommonController {
     }
 
     @RequestMapping({"hello"})
-    @ResponseBody
-    public String hello() {
+    public String hello(Model model) {
         logger.info(">>> remoteAddr: {}, path: {}", ServletUtil.getClientIP(request), request.getServletPath());
+
+        model.addAttribute("user", "guest");
+        model.addAttribute("timestamp", System.currentTimeMillis());
+        model.addAttribute("version", "v1.0.0");
+
         return "hello";
     }
 
