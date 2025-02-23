@@ -10,4 +10,6 @@ mvn archetype:generate -DgroupId=org.kwok -DartifactId=spring-boot-demo -Darchet
 >> https://start.aliyun.com
 >> https://start.spring.io
 3. spring-boot-web
-4. 
+4. spring-boot-web-actuator
+> 使用 `spring-boot-starter-actuator` 模块，提供的 HTTP 端点（Endpoints），用于获取应用的运行时信息。
+5. 
